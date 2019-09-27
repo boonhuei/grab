@@ -8,3 +8,5 @@ cp signal-cli-0.6.3/bin/* /usr/bin/
 cp signal-cli-0.6.3/lib/* /usr/lib/
 tar xJf geckodriver-0.23.0-1-aarch64.pkg.tar.xz
 cp usr/bin/geckodriver /usr/local/bin/
+pip3 install selenium
+tzselect
