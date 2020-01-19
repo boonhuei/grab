@@ -40,7 +40,8 @@ options.add_argument("--headless")
 driver = webdriver.Firefox(options=options)
 
 IMI='https://eservices.imi.gov.my/myimms/myPermit.semak?type=46&lang=en&appType=p'
-XE='https://www.xe.com/currencyconverter/convert/?Amount=1&From=USD&To=MYR'
+#XE='https://www.xe.com/currencyconverter/convert/?Amount=1&From=USD&To=MYR'
+FX='https://finance.yahoo.com/quote/MYR%3DX'
 GEG='https://finance.yahoo.com/quote/0027.HK'
 SC='https://finance.yahoo.com/quote/1383.HK'
 
@@ -87,8 +88,9 @@ MSG = MSG+'\n\n'+STK + '\nPrice: ' + PRICE +'\t\t\t' + RESOLUTION + '\nPrevious 
 
 random_agent = USER_AGENTS[randint(0, len(USER_AGENTS)-1)]
 headers = {'User-Agent':random_agent,}
-driver.get(XE)
-FXRATE = (By.XPATH,"//span[@class='converterresult-toAmount']")
+driver.get(FX)
+FXRATE = STK = driver.find_element_by_xpath("//span[@class='Trsdu(0.3s) Fw(b) Fz(36px) Mb(-4px) D(ib)']").text
+#FXRATE = (By.XPATH,"//span[@class='converterresult-toAmount']")
 WebDriverWait(driver,20).until(EC.element_to_be_clickable(FXRATE))
 XERATE='USD1 = MYR'+WebDriverWait(driver,20).until(EC.element_to_be_clickable(FXRATE)).text
 driver.close()
