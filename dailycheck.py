@@ -89,7 +89,7 @@ MSG = MSG+'\n\n'+STK + '\nPrice: ' + PRICE +'\t\t\t' + RESOLUTION + '\nPrevious 
 random_agent = USER_AGENTS[randint(0, len(USER_AGENTS)-1)]
 headers = {'User-Agent':random_agent,}
 driver.get(FX)
-FXRATE = STK = driver.find_element_by_xpath("//span[@class='Trsdu(0.3s) Fw(b) Fz(36px) Mb(-4px) D(ib)']").text
+FXRATE = driver.find_element_by_xpath("//span[@class='Trsdu(0.3s) Fw(b) Fz(36px) Mb(-4px) D(ib)']").text
 #FXRATE = (By.XPATH,"//span[@class='converterresult-toAmount']")
 WebDriverWait(driver,20).until(EC.element_to_be_clickable(FXRATE))
 XERATE='USD1 = MYR'+WebDriverWait(driver,20).until(EC.element_to_be_clickable(FXRATE)).text
