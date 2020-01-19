@@ -42,7 +42,7 @@ driver.get(FX)
 #FXRATE =  driver.find_element_by_xpath("//span[@class='ccOutputRslt']").text
 #WebDriverWait(driver,20).until(EC.element_to_be_clickable(FXRATE))
 #FXRATE='USD1 = '+WebDriverWait(driver,20).until(EC.element_to_be_clickable(FXRATE)).text
-FXRATE='1USD = '+driver.find_element_by_xpath("//span[@class='ccOutputRslt']").text
+FXRATE='1 USD = '+driver.find_element_by_xpath("//span[@class='ccOutputRslt']").text
 driver.close()
 
 
