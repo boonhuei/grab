@@ -1,3 +1,5 @@
+# in crontab use cd /<path to script> && /<path to python>/python3 /<path to script>/script.py
+#
 import subprocess
 from random import randint
 from selenium import webdriver
@@ -39,8 +41,8 @@ driver = webdriver.Firefox(options=options)
 
 IMI='https://eservices.imi.gov.my/myimms/myPermit.semak?type=46&lang=en&appType=p'
 XE='https://www.xe.com/currencyconverter/convert/?Amount=1&From=USD&To=MYR'
-GEG='https://finance.yahoo.com/quote/0027.HK?p=0027.HK&.tsrc=fin-srch'
-SC='https://finance.yahoo.com/quote/1383.HK?p=1383.HK&.tsrc=fin-srch'
+GEG='https://finance.yahoo.com/quote/0027.HK'
+SC='https://finance.yahoo.com/quote/1383.HK'
 
 random_agent = USER_AGENTS[randint(0, len(USER_AGENTS)-1)]
 headers = {'User-Agent':random_agent,}
@@ -93,7 +95,7 @@ driver.close()
 
 #signal-cli -u USERNAME updateGroup -n "Group name" -m [MEMBER [MEMBER  ^`  ^`^k]]
 
-subprocess.run(['/usr/bin/signal-cli', '-u','+8613128550603', 'send','-m',MPR+'\n\n'+XERATE+'\n\n'+MSG, '+84961031144'])
+subprocess.run(['/usr/bin/signal-cli', '-u','+8613128550603','--config','/home/boonhuei_low/.local/share/signal-cli/', 'send','-m',MPR+'\n\n'+XERATE+'\n\n'+MSG, '+84961031144'])
 #subprocess.run(['/usr/bin/signal-cli', '-u','+8613128550603', 'send','-m',MPR+'\n\n'+XERATE+'\n\n'+MSG, '-g' ,'Daily Update'])
 
 subprocess.run(['pkill','geckodriver'])
